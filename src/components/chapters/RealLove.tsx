@@ -1,5 +1,6 @@
 import { REAL_LOVE } from '../../data/content'
 import { useInView } from '../../hooks/useInView'
+import { Shy } from '../ui/Playful'
 import { Reveal, Script } from '../ui/Script'
 
 export function RealLove() {
@@ -8,7 +9,7 @@ export function RealLove() {
   return (
     <section id="chapter-reallove" data-chapter="reallove" className="chapter mood-warm" ref={ref}>
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-        <p className="kicker">12 — In Return</p>
+        <p className="kicker">In Return</p>
         <h2 className="display">I Want to Make You Feel Loved</h2>
         <div className="mt-12">
           <Script lines={REAL_LOVE.intro} start={seen} />
@@ -34,6 +35,10 @@ export function RealLove() {
             </Reveal>
           ))}
         </div>
+        <Shy
+          hint="come closer"
+          lines={['Closer.', "That's the look. I know that look.", "Hi. Don't look away."]}
+        />
       </div>
     </section>
   )

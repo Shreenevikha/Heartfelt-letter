@@ -16,11 +16,10 @@ import { October7 } from './components/chapters/October7'
 import { RealLove } from './components/chapters/RealLove'
 import { Arrival } from './components/story/Arrival'
 import { QrGate } from './components/story/QrGate'
-import { ChapterRail } from './components/ui/ChapterRail'
+import { BlushProvider } from './components/ui/Playful'
 import { MemoryOverlay, type OpenMemory } from './components/ui/MemoryOverlay'
 import { SoundDock } from './components/ui/SoundDock'
 import { CHAPTERS, audioMoodFor } from './data/content'
-import { usePrefersReducedMotion } from './hooks/useInView'
 import { romanticAudio } from './utils/audioEngine'
 
 type Stage = 'gate' | 'arrival' | 'story'
@@ -60,7 +59,6 @@ function renderChapter(id: string, onOpen: (memory: OpenMemory) => void) {
 }
 
 export default function App() {
-  const reduced = usePrefersReducedMotion()
   const [stage, setStage] = useState<Stage>(() => {
     const params = new URLSearchParams(window.location.search)
     if (params.get('gate') === '1') return 'gate'
@@ -68,7 +66,6 @@ export default function App() {
     return 'gate'
   })
   const [current, setCurrent] = useState('beginning')
-  const [veil, setVeil] = useState(false)
   const [memory, setMemory] = useState<OpenMemory | null>(null)
   const [audioOn, setAudioOn] = useState(false)
   const [finaleBeat, setFinaleBeat] = useState<FinaleBeat>('story')
@@ -155,22 +152,10 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [stage])
 
-  const jump = (id: string) => {
-    const go = () => document.getElementById(`chapter-${id}`)?.scrollIntoView({ behavior: 'auto', block: 'start' })
-    if (reduced) {
-      go()
-      return
-    }
-    setVeil(true)
-    window.setTimeout(() => {
-      go()
-      window.setTimeout(() => setVeil(false), 240)
-    }, 480)
-  }
-
   const petalMode = bloom ? 'bloom' : stage === 'story' && current === 'flowers' ? 'drift' : 'off'
 
   return (
+    <BlushProvider>
     <div className="relative min-h-screen bg-transparent text-[#6d4e66]">
       <Atmosphere />
       <PetalField mode={petalMode} />
@@ -178,10 +163,9 @@ export default function App() {
 
       {stage === 'story' && (
         <>
-          <div className="fixed top-0 right-0 left-0 z-50 h-px md:hidden" aria-hidden="true">
-            <div className="h-full bg-[#e7a0b8]" style={{ width: `${progress * 100}%` }} />
+          <div className="story-progress" aria-hidden="true">
+            <div style={{ width: `${progress * 100}%` }} />
           </div>
-          <ChapterRail chapters={CHAPTERS} current={current} onJump={jump} />
           <main>
             <h1 className="sr-only">The Love We Became. Raghav and Kanmani.</h1>
             {CHAPTERS.map((chapter) => (
@@ -195,7 +179,7 @@ export default function App() {
       {stage === 'gate' && <QrGate onEnter={enter} />}
       {stage === 'arrival' && <Arrival onDone={finishArrival} />}
       <MemoryOverlay memory={memory} onClose={closeMemory} />
-      <div className="veil transition-opacity duration-500" style={{ opacity: veil ? 1 : 0 }} aria-hidden="true" />
     </div>
+    </BlushProvider>
   )
 }

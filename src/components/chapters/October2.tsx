@@ -15,7 +15,7 @@ export function October2() {
     <>
       <section id="chapter-october2" data-chapter="october2" ref={opening.ref} className="chapter mood-intimate">
         <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
-          <p className="kicker">05 — October 2</p>
+          <p className="kicker">October 2</p>
           <h2 className="display">October 2, 2026</h2>
           <p className="subhead">The night everything felt closer</p>
           <div className="relative mt-10 overflow-hidden py-6">

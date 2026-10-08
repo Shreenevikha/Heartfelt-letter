@@ -2,6 +2,7 @@ import { FLOWERS } from '../../data/content'
 import { albumMedia, matchingMedia } from '../../data/media'
 import { useInView } from '../../hooks/useInView'
 import { FilmStrip, framesFrom } from '../ui/FilmStrip'
+import { Shy } from '../ui/Playful'
 import { Reveal, Script } from '../ui/Script'
 
 function PressedBloom({ tone }: { tone: string }) {
@@ -33,7 +34,7 @@ export function Flowers() {
     <>
       <section id="chapter-flowers" data-chapter="flowers" ref={intro.ref} className="chapter mood-memory">
         <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-          <p className="kicker">02 — The Flowers</p>
+          <p className="kicker">The Flowers</p>
           <h2 className="display">You Kept Bringing Me Flowers</h2>
           <div className="mt-12">
             <Script lines={FLOWERS.intro} start={intro.seen} />
@@ -81,6 +82,10 @@ export function Flowers() {
           <Reveal className="mt-16">
             <p className="note text-3xl text-[#c97b96]">quietly, in my heart</p>
           </Reveal>
+          <Shy
+            hint="touch this one"
+            lines={['I kept every flower. Even the ones that wilted.', 'Please don’t stop bringing them. I won’t stop blushing.']}
+          />
         </div>
       </section>
     </>

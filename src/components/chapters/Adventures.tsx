@@ -2,6 +2,7 @@ import { ADVENTURES } from '../../data/content'
 import { albumMedia, matchingMedia } from '../../data/media'
 import type { OpenMemory } from '../ui/MemoryOverlay'
 import { FilmStrip, framesFrom } from '../ui/FilmStrip'
+import { Honest } from '../ui/Playful'
 import { romanticAudio } from '../../utils/audioEngine'
 
 export function Adventures({ onOpen }: { onOpen: (memory: OpenMemory) => void }) {
@@ -17,7 +18,7 @@ export function Adventures({ onOpen }: { onOpen: (memory: OpenMemory) => void })
     <section id="chapter-adventures" data-chapter="adventures" className="chapter mood-memory">
       <div className="relative z-10 mx-auto w-full max-w-3xl">
         <div className="text-center">
-          <p className="kicker">03 — All the Little Adventures</p>
+          <p className="kicker">All the Little Adventures</p>
           <h2 className="display">All the Places We Became Us</h2>
           <p className="whisper mx-auto mt-8 max-w-md">Touch a memory. It will open.</p>
         </div>
@@ -43,6 +44,7 @@ export function Adventures({ onOpen }: { onOpen: (memory: OpenMemory) => void })
             </li>
           ))}
         </ol>
+        <Honest />
         {rest.length > 0 && (
           <div className="full-bleed">
             <FilmStrip frames={framesFrom(rest)} label="The rest of the reel" />

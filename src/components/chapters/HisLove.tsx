@@ -8,7 +8,7 @@ export function HisLove() {
   return (
     <section id="chapter-hislove" data-chapter="hislove" ref={ref} className="chapter mood-intimate">
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-        <p className="kicker">11 — What You Told Me</p>
+        <p className="kicker">What You Told Me</p>
         <h2 className="display">The Love You Gave Me</h2>
         <div className="mt-16 flex flex-col gap-14">
           {HIS_LOVE.fragments.map((line) => (

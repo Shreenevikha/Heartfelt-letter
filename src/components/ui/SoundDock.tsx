@@ -10,7 +10,7 @@ export function SoundDock({ onInteract }: { onInteract: () => void }) {
   const muted = romanticAudio.isMuted()
 
   return (
-    <div className="fixed right-3 top-3 z-[90] flex items-center gap-2 sm:right-5 sm:top-5">
+    <div className="sound-dock">
       <input
         className="h-1 w-16 accent-[#e7a0b8] sm:w-24"
         type="range"

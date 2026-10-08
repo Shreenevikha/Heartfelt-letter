@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { KANMANI, SITE } from '../../data/content'
 import { useInView } from '../../hooks/useInView'
+import { Shy } from '../ui/Playful'
 import { Script } from '../ui/Script'
 
 export function Kanmani() {
@@ -9,7 +10,7 @@ export function Kanmani() {
   return (
     <section id="chapter-kanmani" data-chapter="kanmani" ref={ref} className="chapter mood-memory">
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-        <p className="kicker">10 — A Name That Became Ours</p>
+        <p className="kicker">A Name That Became Ours</p>
         <Script lines={KANMANI.lines} start={seen} stagger={0.95} />
         <motion.h2
           className="hand mt-16"
@@ -20,6 +21,10 @@ export function Kanmani() {
         >
           {KANMANI.title}
         </motion.h2>
+        <Shy
+          hint="say it. I dare you."
+          lines={['Kanmani.', 'Yours. Now stop looking at me like that.']}
+        />
         <p className="mt-8 text-[0.95rem] italic text-[#c97b96]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
           {SITE.monogram}
         </p>

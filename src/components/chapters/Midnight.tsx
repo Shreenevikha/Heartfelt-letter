@@ -2,6 +2,7 @@ import { MIDNIGHT } from '../../data/content'
 import { albumMedia } from '../../data/media'
 import { useInView } from '../../hooks/useInView'
 import { FilmStrip, framesFrom } from '../ui/FilmStrip'
+import { ShyText } from '../ui/Playful'
 import { Script } from '../ui/Script'
 import { Ticket } from '../ui/Ticket'
 
@@ -15,8 +16,8 @@ export function Midnight() {
         <div className="letterbox">
           <div className="bar" />
           <div className="screen text-center">
-            <p className="kicker">04 — A Midnight Screening</p>
-            <p className="clock">{MIDNIGHT.clock}</p>
+            <p className="kicker">A Midnight Screening</p>
+            <ShyText className="clock" text={MIDNIGHT.clock} secret="We were supposed to watch the movie. I kept looking at you." />
             <h2 className="display mt-6" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.6rem)' }}>Midnight with Raghav</h2>
             <Ticket film={MIDNIGHT.film} time="12:00 AM" />
           </div>

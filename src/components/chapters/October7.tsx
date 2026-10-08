@@ -14,7 +14,7 @@ export function October7() {
     <>
       <section id="chapter-october7" data-chapter="october7" ref={ref} className="chapter mood-warm">
         <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
-          <p className="kicker">07 — October 7</p>
+          <p className="kicker">October 7</p>
           <h2 className="display">October 7, 2026</h2>
           <p className="subhead">The night we chose each other again</p>
           <Ticket film={OCTOBER7.film} date="October 7, 2026" />

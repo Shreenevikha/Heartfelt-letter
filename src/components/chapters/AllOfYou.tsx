@@ -1,20 +1,25 @@
 import { ALL_OF_YOU } from '../../data/content'
+import { ShyText } from '../ui/Playful'
 import { Reveal } from '../ui/Script'
 
 export function AllOfYou() {
   return (
     <section id="chapter-allofyou" data-chapter="allofyou" className="chapter mood-memory">
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-        <p className="kicker">09 — All of You</p>
+        <p className="kicker">All of You</p>
         <h2 className="display">I Love Everything About You</h2>
         <Reveal className="mt-14">
           <p className="whisper">I love your name.</p>
-          <p className="script-title mt-4">{ALL_OF_YOU.name}</p>
+          <ShyText className="script-title" text={ALL_OF_YOU.name} secret="Okay. I said it. Your turn to blush." />
         </Reveal>
         <div className="mt-16 flex flex-col gap-8">
           {ALL_OF_YOU.features.map((line) => (
             <Reveal key={line}>
-              <p className="emphasis">{line}</p>
+              {line === 'Your smile.' ? (
+                <ShyText className="emphasis" text={line} secret="Don’t. I lose the sentence when you do that." />
+              ) : (
+                <p className="emphasis">{line}</p>
+              )}
             </Reveal>
           ))}
         </div>

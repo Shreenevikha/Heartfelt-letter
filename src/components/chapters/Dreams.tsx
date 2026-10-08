@@ -8,7 +8,7 @@ export function Dreams() {
   return (
     <section id="chapter-dreams" data-chapter="dreams" ref={ref} className="chapter mood-memory">
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-        <p className="kicker">08 — What I Want with You</p>
+        <p className="kicker">What I Want with You</p>
         <h2 className="display">I Don't Just Want Moments with You</h2>
         <div className="mt-12">
           <Script lines={DREAMS.intro} start={seen} />

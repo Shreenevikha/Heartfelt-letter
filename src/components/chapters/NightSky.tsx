@@ -12,9 +12,9 @@ export function NightSky() {
   return (
     <section id="chapter-sky" data-chapter="sky" className="chapter mood-sky">
       <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
-        <p className="kicker">13 — The Constellation</p>
+        <p className="kicker">The Constellation</p>
         <h2 className="display">My Dreams Have You in Them</h2>
-        <div className="relative mx-auto mt-10 h-[68vh] min-h-[420px] w-full max-w-4xl">
+        <div className="sky-stage relative mx-auto mt-10 w-full max-w-4xl">
           <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             {SKY.path.slice(0, -1).map((id, index) => {
               const from = byId[id]

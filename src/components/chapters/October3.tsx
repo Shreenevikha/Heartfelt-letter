@@ -43,7 +43,7 @@ export function October3() {
     <>
       <section id="chapter-october3" data-chapter="october3" ref={ref} className="chapter mood-hush">
         <div className="relative z-10 text-center">
-          <p className="kicker">06 — October 3</p>
+          <p className="kicker">October 3</p>
           <p className="clock mt-8">{label}</p>
           <p className="mt-4 text-[0.66rem] tracking-[0.28em] text-[rgba(109,78,102,0.55)] uppercase">
             {midnight ? 'October 3' : 'October 2'}
